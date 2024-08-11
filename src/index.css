@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: iransans;
+  src: url("../src/assets/font/IRANSansX-Medium.ttf") format("opentype");
+  src: url("../src/assets/font/IRANSansXFaNum-Medium.ttf") format("opentype");
+}
+@layer base {
+    body {
+      @apply font-iransans;
+      @apply bg-darkGray
+     
+    }
+   
+  }
+
+  
