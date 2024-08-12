@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react'
-import Header from './Header'
-import { Outlet } from 'react-router-dom'
-import ShowPage from './ShowPage'
-import SelectCityContent from '../features/SelectCity.jsx/SelectCityContent'
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
+import ShowPage from "./ShowPage";
 function AppLayout() {
-
   return (
-      <>
-          <Header></Header>
-          <main>
-              <Outlet></Outlet>
-          </main>
-          <ShowPage><SelectCityContent></SelectCityContent></ShowPage>
-      </>
-  )
+    <>
+      <Header></Header>
+      <main>
+        <Outlet></Outlet>
+      </main>
+      <ShowPage></ShowPage>
+    </>
+  );
 }
 
-export default AppLayout
+export default AppLayout;
