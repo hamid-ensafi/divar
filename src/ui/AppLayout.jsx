@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Header from './Header'
 import { Outlet } from 'react-router-dom'
 import ShowPage from './ShowPage'
+import SelectCityContent from '../features/SelectCity.jsx/SelectCityContent'
 function AppLayout() {
 
   return (
@@ -10,7 +11,7 @@ function AppLayout() {
           <main>
               <Outlet></Outlet>
           </main>
-          <ShowPage></ShowPage>
+          <ShowPage><SelectCityContent></SelectCityContent></ShowPage>
       </>
   )
 }

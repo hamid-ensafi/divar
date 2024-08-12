@@ -1,4 +1,3 @@
-import React, { memo } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { openPopup } from "../../slice/popupSlice";

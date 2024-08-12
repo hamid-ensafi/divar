@@ -1,20 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isOpen: false,
-    target:''
+    target: '',
+    
 }
 const popupSlice = createSlice({
     name: 'ui',
     initialState,
     reducers: {
         openPopup(state, action) {
-            state.isOpen = !state.isOpen
+            state.isOpen = true
             state.target=action.payload
         },
         closePopup(state) {
             state.isOpen=false
             state.target=''
-        }
+        },
+        
     }
 })
 

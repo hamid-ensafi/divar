@@ -16,7 +16,7 @@ function CategoryContent() {
     return (
       <div className="absolute z-10 mt-5 w-10/12">
         {/* bg-darkGray */}
-        <div className="flex h-full w-full animate-opacityAnime rounded bg-darkGray p-8 shadow-Prime">
+        <div className="flex h-full w-full animate-opacityAnime rounded  bg-darkGray p-8 shadow-Prime">
           <div
             className="flex w-2/12 flex-col border-l border-gray_200 pl-6"
             id="categury-item"
