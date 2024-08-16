@@ -1,11 +1,15 @@
 import React from "react";
 import Empty from "../../ui/Empty";
+import { useGetSearchResult } from "./useGetSeaarch";
+import SubPopUp from "../../ui/SubPopUp";
 
-function SearchResult() {
+function SearchResult(query) {
+  const { ads, isLoadingResult, resualtError } = useGetSearchResult(query);
+
   return (
-    <div className="no-scrollbar absolute z-10 h-[15rem] max-h-96 w-full overflow-y-scroll  bg-darkGray shadow-sm shadow-slate-400">
+    <SubPopUp type={'search'}>
       <Empty></Empty>
-    </div>
+    </SubPopUp>
   );
 }
 

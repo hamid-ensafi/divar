@@ -9,14 +9,14 @@ import { CiMicrophoneOn, CiMobile2 } from "react-icons/ci";
 import { LuLampFloor, LuUsers2 } from "react-icons/lu";
 import { GiWatch } from "react-icons/gi";
 import Button from "../../ui/Button";
+import SubPopUp from "../../ui/SubPopUp";
 
 function CategoryContent() {
   const { isOpen, target } = useSelector(getOpen);
   if (isOpen === true && target === "دسته ها") {
     return (
-      <div className="absolute z-10 mt-5 w-10/12">
-        {/* bg-darkGray */}
-        <div className="flex h-full w-full animate-opacityAnime rounded  bg-darkGray p-8 shadow-Prime">
+      <SubPopUp type='category'>
+        <div className="flex h-full w-full ">
           <div
             className="flex w-2/12 flex-col border-l border-gray_200 pl-6"
             id="categury-item"
@@ -77,10 +77,10 @@ function CategoryContent() {
           </div>
           <div id="categury-content"></div>
         </div>
-      </div>
+      </SubPopUp>
     );
   }
   return null;
 }
 
-export default CategoryContent ;
+export default CategoryContent;

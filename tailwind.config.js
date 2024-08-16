@@ -18,11 +18,15 @@ export default {
       colors: {
         shadow:'#ffffff1f',
         Red: "#D14757",
+        red_100:'#d1475729',
         darkGray: "#242424", 
         lightGray: '#ffffff8f',
         lightBlack: '#ffffff0a',
+        gray_50: '#ffffffde',
+        gray_100: '#ffffff4f',
         gray_200: '#ffffff14',
-        gray_100:'#ffffff4f'
+      
+        
       },
 
       fontFamily: {

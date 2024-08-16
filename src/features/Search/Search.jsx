@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import SearchResult from "./SearchResult";
 import { useDispatch, useSelector } from "react-redux";
 import { getOpen, openPopup } from "../../slice/popupSlice";
+import getResualt from "../../service/apiSearchResualt";
+import { useQuery } from "@tanstack/react-query";
 
 function Search() {
   const dispatch = useDispatch();
   const { isOpen, target } = useSelector(getOpen);
+  const [query, setQuery] = useState();
+
+  // useEffect(() => {
+  //   async function searchResult() {
+  //     const { AdFeature, error } =await getResualt(query);
+  //     console.log(AdFeature);
+  //   }
+  //   searchResult()
+  // }, [query]);
 
   function handleFocus(target) {
     dispatch(openPopup(target));
@@ -16,10 +27,12 @@ function Search() {
       <div className="relative flex items-center">
         <form className="flex w-full items-center justify-center" action="">
           <input
+            onChange={(e) => setQuery(e.target.value)}
             className={
-              target === "searchbox" && isOpen
-                ? "w-full rounded-md border-none bg-gray_200 px-1 py-3 shadow-sm shadow-slate-400 outline-none"
-                : "w-full rounded-md border-none bg-gray_200 px-1 py-3 outline-none"
+              "w-full rounded-md border-none bg-gray_200 px-1 py-3 outline-none " +
+              (target === "searchbox" && isOpen
+                ? "shadow-sm shadow-slate-400"
+                : "")
             }
             type="text"
             placeholder="جستجو در همه اگهی  ها "
@@ -31,7 +44,9 @@ function Search() {
         </span>
       </div>
 
-      {isOpen && target === "searchbox" && <SearchResult></SearchResult>}
+      {isOpen && target === "searchbox" && (
+        <SearchResult query={query}></SearchResult>
+      )}
     </div>
   );
 }

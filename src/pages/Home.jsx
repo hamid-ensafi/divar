@@ -4,9 +4,7 @@ function Home() {
 
 
   return (
-    <h1>
-      home
-    </h1>
+    <h1>hamid ensafi megar zade </h1>
   );
 }
 

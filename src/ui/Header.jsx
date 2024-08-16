@@ -1,12 +1,10 @@
 import React from "react";
-import { CiLocationOn } from "react-icons/ci";
 import Search from "../features/Search/Search";
-import Button from "./Button";
 import Category from "../features/categury/Category";
 import MenuButton from "./MenuButton";
 import Logo from "./Logo";
-import { useDispatch, useSelector } from "react-redux";
-import { getOpen, openPopup } from "../slice/popupSlice";
+import { useSelector } from "react-redux";
+import { getOpen } from "../slice/popupSlice";
 import SelectionCity from "../features/SelectCity.jsx/SelectionCity";
 function HeaderLayout() {
   const { target } = useSelector(getOpen);
@@ -35,8 +33,8 @@ function Header({ type, children }) {
     <header
       className={
         type
-          ? "flex justify-center py-4 text-lightGray shadow-Prime z-0"
-          : "flex justify-center py-4 text-lightGray shadow-Prime z-10"
+          ? "relative z-0 flex justify-center bg-darkGray py-4 text-lightGray shadow-Prime"
+          : "relative z-20 flex justify-center bg-darkGray py-4  text-lightGray shadow-Prime"
       }
     >
       {children}
