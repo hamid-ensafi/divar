@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 import { getOpen } from "../slice/popupSlice";
 import SelectionCity from "../features/SelectCity.jsx/SelectionCity";
 function HeaderLayout() {
-  const { target } = useSelector(getOpen);
+  
   return (
-    <Header type={target === "select city"}>
+    <Header>
       <div className="w-full 2xl:container">
         <div className="flex justify-center">
           <nav className="relative flex w-11/12">
@@ -28,11 +28,12 @@ function HeaderLayout() {
     </Header>
   );
 }
-function Header({ type, children }) {
+function Header({children }) {
+  const { target:type } = useSelector(getOpen);
   return (
     <header
       className={
-        type
+        type==='select city'
           ? "relative z-0 flex justify-center bg-darkGray py-4 text-lightGray shadow-Prime"
           : "relative z-20 flex justify-center bg-darkGray py-4  text-lightGray shadow-Prime"
       }

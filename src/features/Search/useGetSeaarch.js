@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import getResualt from "../../service/apiSearchResualt";
 
-function useGetSearchResult({ query }) {
+
+function useGetSearchResult(query) {
   const {
     data: ads,
     isLoading: isLoadingResult,
@@ -10,7 +11,7 @@ function useGetSearchResult({ query }) {
     queryKey: ["search", query],
     queryFn: () => getResualt(query),
     enabled: !!query,
-    staleTime: 12_0000,
+    staleTime:0,
   });
   return { ads, isLoadingResult, resualtError };
 }

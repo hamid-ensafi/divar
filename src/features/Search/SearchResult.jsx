@@ -1,14 +1,19 @@
 import React from "react";
 import Empty from "../../ui/Empty";
-import { useGetSearchResult } from "./useGetSeaarch";
 import SubPopUp from "../../ui/SubPopUp";
+import { MoonLoader } from "react-spinners";
 
-function SearchResult(query) {
-  const { ads, isLoadingResult, resualtError } = useGetSearchResult(query);
+function SearchResult({ ads, isLoadingResult, children }) {
 
   return (
-    <SubPopUp type={'search'}>
-      <Empty></Empty>
+    <SubPopUp type={"search"}>
+      {isLoadingResult && (
+        <Empty>
+          <MoonLoader size={30} color="#fff"/>
+        </Empty>
+      )}
+      {!ads && <Empty></Empty>}
+      {children}
     </SubPopUp>
   );
 }

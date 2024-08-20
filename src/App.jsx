@@ -6,9 +6,11 @@ import store from "../store";
 import Home from "./pages/Home";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./service/api";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
       <Provider store={store}>
         <BrowserRouter>
           <Routes>

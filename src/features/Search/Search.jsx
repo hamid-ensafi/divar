@@ -1,33 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import SearchResult from "./SearchResult";
 import { useDispatch, useSelector } from "react-redux";
 import { getOpen, openPopup } from "../../slice/popupSlice";
-import getResualt from "../../service/apiSearchResualt";
-import { useQuery } from "@tanstack/react-query";
+import { debounce } from "lodash";
+import ResultItem from "./ResultItem";
+import { useGetSearchResult } from "./useGetSeaarch";
 
 function Search() {
   const dispatch = useDispatch();
   const { isOpen, target } = useSelector(getOpen);
   const [query, setQuery] = useState();
-
-  // useEffect(() => {
-  //   async function searchResult() {
-  //     const { AdFeature, error } =await getResualt(query);
-  //     console.log(AdFeature);
-  //   }
-  //   searchResult()
-  // }, [query]);
+  const { ads, isLoadingResult } = useGetSearchResult(query);
 
   function handleFocus(target) {
     dispatch(openPopup(target));
   }
+
   return (
     <div className="relative w-3/4">
       <div className="relative flex items-center">
         <form className="flex w-full items-center justify-center" action="">
           <input
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={debounce((e) => setQuery(e.target.value), 300)}
             className={
               "w-full rounded-md border-none bg-gray_200 px-1 py-3 outline-none " +
               (target === "searchbox" && isOpen
@@ -45,7 +40,11 @@ function Search() {
       </div>
 
       {isOpen && target === "searchbox" && (
-        <SearchResult query={query}></SearchResult>
+        <>
+          <SearchResult ads={ads} isLoadingResult={isLoadingResult}>
+            <ResultItem ads={ads}></ResultItem>
+          </SearchResult>
+        </>
       )}
     </div>
   );
