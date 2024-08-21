@@ -11,7 +11,7 @@ function Button({ children, disabled, to, type, onClick, text }) {
     redButton:
       "font-700 bg-Red rounded-md px-2 text-sm text-slate-800 transition duration-200 hover:bg-red-400",
     textButton: 'font-700 text-Red px-2 text-sm transition duration-200 hover:bg-red_100 rounded-full text-xs',
-    redBorderButton:'font-700 text-Red p-2 text-sm transition cursor-default duration-200 border border-Red bg-red_100 rounded-full text-xs'
+    // redBorderButton:'font-700 text-Red p-2 text-sm transition cursor-default duration-200 border border-Red bg-red_100 rounded-full text-xs'
   };
   if (to)
     return (
