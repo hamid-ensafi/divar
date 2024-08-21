@@ -16,8 +16,9 @@ async function getProvince() {
 }
 async function getCity(query) {
   let { data: province, error } = await supabase
-    .from("province")
-    .select("*");
+  .from('cities')
+  .select('*')
+  .eq('provinceId', query)
 
  
     if (error) {

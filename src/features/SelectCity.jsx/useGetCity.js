@@ -9,6 +9,7 @@ function useGetCity(query) {
   } = useQuery({
     queryKey: ["city", query],
     queryFn: () => getCity(query),
+    enabled: !!query,
   });
   return { city, isLoadingCity, cityError };
 }
