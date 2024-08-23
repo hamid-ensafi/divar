@@ -5,14 +5,19 @@ import { useGetCity } from "./useGetCity";
 import CityItem from "./CityItem";
 import MenuItem from "../../ui/MenuItem";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { MoonLoader } from "react-spinners";
+import Empty from "../../ui/Empty";
 
 function Province() {
-  const { province } = useGetProvince();
   const [provinceId, setProvinceId] = useState("");
-  const { city } = useGetCity(provinceId);
+
+  const { province, isLoadingProvince } = useGetProvince();
+  const { city, isLoadingCity } = useGetCity(provinceId);
+
   function handleClick(id) {
     setProvinceId(id);
   }
+
   return (
     <div className="h-3/6 overflow-y-scroll px-12 py-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray_200">
       {!provinceId &&
@@ -35,6 +40,10 @@ function Province() {
             <CityItem key={item.id} item={item}></CityItem>
           ))}
         </div>
+      )}
+
+      {(isLoadingCity || isLoadingProvince) && (
+        <Empty><MoonLoader size={30} color="#fff" /></Empty>
       )}
     </div>
   );

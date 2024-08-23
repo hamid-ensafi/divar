@@ -5,19 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItem, getCitySelect } from "../../slice/citySelectSlice";
 
 function CitySelectList() {
-    const { cityItem } = useSelector(getCitySelect);
-    const dispatch=useDispatch()
-    function handleClick(value) {
-        console.log(value)
-        dispatch(deleteItem(value))
-    }
+  const { cityItem } = useSelector(getCitySelect);
+  const dispatch = useDispatch();
+  function handleClick(value) {
+    dispatch(deleteItem(value));
+  }
   return (
-    <div className="flex w-full gap-2">
+    <div className="flex w-full gap-2 min-h-[33px]">
       {cityItem.map((item) => (
-        <span key={item} className="font-700 cursor-default rounded-full border border-Red bg-red_100 p-2 text-xs text-Red transition duration-200">
+        <span
+          key={item.id}
+          className="font-700 cursor-default rounded-full border border-Red bg-red_100 p-2 text-xs text-Red transition duration-200"
+        >
           <span className="flex items-center justify-center gap-2">
-            <span>{item}</span>
-            <Button onClick={()=>handleClick(item)}>
+            <span>{item.cityname}</span>
+            <Button onClick={() => handleClick(item.cityname)}>
               <HiOutlineXMark />
             </Button>
           </span>

@@ -6,24 +6,26 @@ import { getCitySelect, selectCity } from "../../slice/citySelectSlice";
 function CityItem({ item }) {
   const { cityname } = item;
   const dispatch = useDispatch();
+
   function handleChange(e) {
     const { target } = e;
-    const { checked, value } = target;
-    dispatch(selectCity({ checked, value }));
+    const { checked } = target;
+    dispatch(selectCity({ checked, item }));
   }
-  const { cityItem } = useSelector(getCitySelect)
+
+  const { cityItem } = useSelector(getCitySelect);
+
   return (
     <MenuItem>
       <div>
         <p>{cityname}</p>
       </div>
       <div>
-        {/* <IoIosArrowBack size={15} /> */}
         <input
           type="checkbox"
           onChange={(e) => handleChange(e)}
           value={cityname}
-          checked={ cityItem.includes(cityname)}
+          checked={cityItem.map((value) => value.cityname).includes(cityname)}
         />
       </div>
     </MenuItem>

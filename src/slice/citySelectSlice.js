@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+const city =
+  localStorage.getItem("city") !== null
+    ? JSON.parse(localStorage.getItem("city"))
+    : [];
 const initialState = {
-  cityItem: [],
+  cityItem: city,
 };
 const citySlice = createSlice({
   name: "city",
@@ -8,18 +13,25 @@ const citySlice = createSlice({
   reducers: {
     selectCity(state, action) {
       if (action.payload.checked) {
-        state.cityItem = [...state.cityItem, action.payload.value];
+        state.cityItem = [...state.cityItem, action.payload.item];
         return;
       }
-
+      console.log(action);
       state.cityItem = state.cityItem
         .slice()
-        .filter((item) => item !== action.payload.value);
+        .filter((item) => item.cityname !== action.payload.item.cityname);
     },
     deleteItem(state, action) {
       state.cityItem = state.cityItem
         .slice()
-        .filter((item) => item !== action.payload);
+        .filter((item) => item.cityname !== action.payload);
+    },
+    saveLocalStorage(state) {
+      localStorage.setItem("city", JSON.stringify(state.cityItem));
+      
+    },
+    cancelSelection(state) {
+      state.cityItem = JSON.parse(localStorage.getItem("city"));
     },
   },
 });
@@ -28,4 +40,4 @@ export const getCitySelect = (state) => state.city;
 
 export default citySlice.reducer;
 
-export const { selectCity, deleteItem } = citySlice.actions;
+export const { selectCity, deleteItem, saveLocalStorage ,cancelSelection} = citySlice.actions;
