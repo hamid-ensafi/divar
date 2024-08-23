@@ -11,7 +11,7 @@ function useGetSearchResult(query) {
     queryKey: ["search", query],
     queryFn: () => getResualt(query),
     enabled: !!query,
-    staleTime:0,
+    staleTime:12_0000
   });
   return { ads, isLoadingResult, resualtError };
 }

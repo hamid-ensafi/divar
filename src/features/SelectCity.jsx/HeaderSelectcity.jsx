@@ -2,6 +2,7 @@ import React from 'react'
 import { HiOutlineXMark } from 'react-icons/hi2'
 import { SlMagnifier } from 'react-icons/sl'
 import Button from '../../ui/Button'
+import CitySelectList from './CitySelectList'
 
 function HeaderSelectCity() {
   return (
@@ -10,16 +11,7 @@ function HeaderSelectCity() {
             <h3>انتخاب شهر </h3>
             <Button type={"textButton"}> حذف همه </Button>
           </div>
-          <div className="flex w-full gap-2">
-            <span className="font-700 cursor-default rounded-full border border-Red bg-red_100 p-2 text-xs text-Red transition duration-200">
-              <span className="flex items-center justify-center gap-2">
-                <span>تهران</span>
-                <Button>
-                  <HiOutlineXMark />
-                </Button>
-              </span>
-            </span>
-          </div>
+          <CitySelectList></CitySelectList>
           <div className="relative flex w-full items-center">
             <input
               className={
