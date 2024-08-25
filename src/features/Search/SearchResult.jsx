@@ -4,15 +4,14 @@ import SubPopUp from "../../ui/SubPopUp";
 import { MoonLoader } from "react-spinners";
 
 function SearchResult({ ads, isLoadingResult, children }) {
-
   return (
     <SubPopUp type={"search"}>
       {isLoadingResult && (
         <Empty>
-          <MoonLoader size={30} color="#fff"/>
+          <MoonLoader size={30} color="#fff" />
         </Empty>
       )}
-      {!ads && <Empty></Empty>}
+      {(!ads || ads.length === 0) && <Empty></Empty>}
       {children}
     </SubPopUp>
   );

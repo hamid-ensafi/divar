@@ -10,7 +10,7 @@ function useGetCity(query) {
     queryKey: ["city", query],
     queryFn: () => getCity(query),
     enabled: !!query,
-    staleTime:12_0000
+    staleTime:120000
   });
   return { city, isLoadingCity, cityError };
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 function ResultItem({ ads }) {
+  
   return (
     <>
       {ads?.map((item) => (

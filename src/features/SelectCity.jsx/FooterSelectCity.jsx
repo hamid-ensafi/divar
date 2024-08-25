@@ -20,7 +20,6 @@ function FooterSelectCity() {
     );
     setSearchParams(`cities=${cityId}`);
     dispatch(closePopup());
-    console.log(searchParams.get('cities').split(','))
   }
 
   function handleCancel() {

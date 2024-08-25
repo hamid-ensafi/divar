@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProvince } from "../../service/apiProvince";
 
-function useGetProvince(query) {
+function useGetProvince() {
   const {
     data: province,
     isLoading: isLoadingProvince,
@@ -9,7 +9,7 @@ function useGetProvince(query) {
   } = useQuery({
     queryKey: ["province"],
     queryFn: getProvince,
-    staleTime: 12_0000,
+    staleTime: 120000,
   });
   return { province, isLoadingProvince, provinceError };
 }
