@@ -7,14 +7,14 @@ import { getCitySelect } from "../../slice/citySelectSlice";
 
 function SelectionCity() {
   const dispatch = useDispatch();
-  const { cityItem } = useSelector(getCitySelect)
-  let cityLocalStorage=JSON.parse(localStorage.getItem('city'))
+  const { cityItemStorage } = useSelector(getCitySelect)
+  
   return (
     <div>
       <Button
         onClick={() => dispatch(openPopup("select city"))}
         type="row"
-        text={cityItem.length<=1?`${cityLocalStorage.at(0)?.cityname}`:`${cityItem.length}  شهر`}
+        text={cityItemStorage.length<=1?`${cityItemStorage.at(0)?.cityname}`:`${cityItemStorage.length}  شهر`}
       >
         <CiLocationOn />
       </Button>

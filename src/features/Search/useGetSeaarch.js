@@ -1,21 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import getResualt from "../../service/apiSearchResualt";
-import { useSearchParams } from "react-router-dom";
-
+import { useCityParams } from "../../hooks/useCityId";
 
 function useGetSearchResult(query) {
-  const [searchParams] = useSearchParams();
-  const params=searchParams?.get('cities')?.split(',').map((value)=>+value)
+  const { params } = useCityParams();
 
   const {
     data: ads,
     isLoading: isLoadingResult,
     error: resualtError,
   } = useQuery({
-    queryKey: ["search", query,params],
-    queryFn: () => getResualt(query,params),
+    queryKey: ["search", query, params],
+    queryFn: () => getResualt(query, params),
     enabled: !!query,
-    staleTime:120000
+    staleTime: 120000,
   });
   return { ads, isLoadingResult, resualtError };
 }

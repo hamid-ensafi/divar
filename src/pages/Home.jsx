@@ -3,7 +3,7 @@ import Ads from "../features/Ads/Ads";
 
 function Home() {
   return (
-    <section className="flex justify-center mt-14">
+    <section className="mt-14 flex justify-center">
       <div className="w-full 2xl:container">
         <div className="flex justify-center">
           <div className="w-[20%]">

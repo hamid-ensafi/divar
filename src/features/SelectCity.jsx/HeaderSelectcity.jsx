@@ -1,5 +1,4 @@
 import React from 'react'
-import { HiOutlineXMark } from 'react-icons/hi2'
 import { SlMagnifier } from 'react-icons/sl'
 import Button from '../../ui/Button'
 import CitySelectList from './CitySelectList'
