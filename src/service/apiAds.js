@@ -3,8 +3,13 @@ import supabase from "./supabase";
 async function getAds(params) {
   let { data: Ads, error } = await supabase
     .from("Ads")
-    .select("*")
-    .in("cityId", params);
+    .select(`
+      *,
+      cities(
+        cityname
+      )
+    `)
+    .in("cityId", params)
   if (error) {
     console.error(error.message);
 

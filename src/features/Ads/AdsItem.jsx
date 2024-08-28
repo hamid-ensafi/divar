@@ -1,19 +1,31 @@
 import React from "react";
 import { LuMessageCircle } from "react-icons/lu";
+import { numberFormat } from "../../utils/helper";
+import { useDateFormater } from "../../hooks/useDate";
 
-function AdsItem() {
- 
+function AdsItem({ article }) {
+  const { cities, created_at, title, price, image } = article;
+  const { cityname } = cities;
+
   return (
-    <div className="flex w-[32%] items-center rounded border border-gray_200">
-      <div className="flex h-full w-full justify-evenly p-4">
+    <article className="flex w-[100%] cursor-pointer items-center rounded border border-gray_200 md:w-[49%] lg:w-[32%]">
+      <div className="relative flex h-full w-full justify-between p-4">
         <div className="flex flex-col justify-between">
-          <h2 className="text-white">دنیای اساسا را سه زیادی.</h2>
+          <h2 className="text-white">{title}</h2>
           <div>
-            <p className="text-sm text-lightGray">10,233,456 تومان</p>
-            <p className="text-sm text-lightGray">لحظاتی پیش در ابشار</p>
+            <p className="text-sm text-lightGray">
+              {numberFormat(price)}
+              {"  "}
+              تومان
+            </p>
+            <p className="text-sm text-lightGray">
+              {useDateFormater(created_at)}
+
+              {cityname}
+            </p>
           </div>
         </div>
-        <div className="self-end">
+        <div className="absolute left-[50%] translate-x-[-50%] transform self-end">
           <span className="text-slate-50">
             <LuMessageCircle />
           </span>
@@ -21,14 +33,14 @@ function AdsItem() {
         <div>
           <figure className="h-[136px] w-[136px]">
             <img
-              className="block h-full w-full rounded"
-              src="https://s100.divarcdn.com/static/photo/neda/thumbnail/KnIO1yvpdZzEBr1zT9Sylg/52d78fca-428e-4d39-adf4-ddf687be9f1f.jpg"
+              className="block h-full w-full rounded object-cover object-center"
+              src={image}
               alt=""
             />
           </figure>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
