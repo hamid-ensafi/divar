@@ -1,11 +1,19 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 
 function ResultItem({ ads }) {
-  
+  const [searchParams, setSearchParams] = useSearchParams();
+  function handleSelect(title) {
+    searchParams.set("sortdata", title);
+    if (title) {
+      setSearchParams(searchParams, { replace: true });
+    }
+  }
   return (
     <>
       {ads?.map((item) => (
         <div
+          onClick={() => handleSelect(item.title)}
           key={item.title}
           className="flex cursor-pointer flex-wrap rounded border-b border-gray_200 p-4 hover:bg-gray_200"
         >

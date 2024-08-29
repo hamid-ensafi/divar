@@ -3,7 +3,6 @@ import { formatDistanceToNow } from "date-fns";
 function useDateFormater(date) {
   const timeAgo = formatDistanceToNow(new Date(date), { addSuffix: true });
   let newTimeAgo = timeAgo.split(" ");
-  console.log(newTimeAgo);
   let value = "";
   if (newTimeAgo.includes("hours")) {
     value = ` ${newTimeAgo.at(0)}  ساعت پیش در    `;

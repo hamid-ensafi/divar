@@ -6,15 +6,15 @@ import { useGetAds } from "./useGetAds";
 import Skeleton from "../../ui/Skeleton";
 
 function Ads() {
-  const [, setSearch] = useSearchParams();
+  const [search, setSearch] = useSearchParams();
 
   const cityId = useCityId();
 
   const updateSearch = useCallback(() => {
-
-    setSearch(`cities=${cityId}`);
+    search.set('cities',cityId)
+    setSearch(search, {replace:true});
     
-  }, [setSearch, cityId]);
+  }, [setSearch, cityId,search]);
 
   useEffect(() => {
 
@@ -25,7 +25,7 @@ function Ads() {
   const { ads, isLoadingAds } = useGetAds();
 
   return (
-    <div className="flex w-9/12 flex-wrap gap-2">
+    <div className="flex w-9/12  flex-wrap gap-2">
       {!isLoadingAds &&
         ads?.map((article) => (
           <AdsItem key={article.id} article={article}></AdsItem>
