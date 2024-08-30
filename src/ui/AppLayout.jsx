@@ -5,7 +5,7 @@ function AppLayout() {
   return (
     <>
       <Header></Header>
-      <main>
+      <main className="relative">
         <Outlet></Outlet>
       </main>
       <ShowPage></ShowPage>

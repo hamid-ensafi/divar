@@ -31,11 +31,11 @@ function HeaderLayout() {
 function Header({children }) {
   const { target:type } = useSelector(getOpen);
   return (
-    <header
+    <header 
       className={
         type==='select city'
-          ? "relative z-0 flex justify-center bg-darkGray py-4 text-lightGray shadow-Prime"
-          : "relative z-20 flex justify-center bg-darkGray py-4  text-lightGray shadow-Prime"
+          ? "sticky top-0 z-0 flex justify-center bg-darkGray py-4 text-lightGray shadow-Prime"
+          : "sticky top-0 z-20 flex justify-center bg-darkGray py-4  text-lightGray shadow-Prime"
       }
     >
       {children}
