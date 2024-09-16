@@ -5,18 +5,21 @@ import { useDateFormater } from "../../hooks/useDate";
 import { useNavigate } from "react-router-dom";
 
 function AdsItem({ article }) {
-  const { id,cities, created_at, title, price, image } = article;
+  const { id, cities, created_at, title, price, image } = article;
   const { cityname } = cities;
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+
   return (
-    <article onClick={()=>navigate(`article/${id}`)} className="flex w-[100%] cursor-pointer items-center rounded border border-gray_200 md:w-[49%] lg:w-[32%]">
+    <article
+      onClick={() => navigate(`article/${id}`)}
+      className="flex max-h-[168px] w-[100%] cursor-pointer items-center rounded border border-gray_200 md:w-[49%] lg:w-[32%]"
+    >
       <div className="relative flex h-full w-full justify-between p-4">
         <div className="flex flex-col justify-between">
           <h2 className="text-white">{title}</h2>
           <div>
             <p className="text-sm text-lightGray">
-              {numberFormat(price)}
-              تومان
+              {numberFormat(price)} تومان
             </p>
             <p className="text-sm text-lightGray">
               {useDateFormater(created_at)}

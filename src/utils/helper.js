@@ -8,5 +8,7 @@ function numberFormat(number) {
   return new Intl.NumberFormat("fa-IR").format(number);
 }
 
-
-export { localStorageCity, numberFormat };
+function Find(CategoryData,id) {
+  return CategoryData.slice().find((item) => item.id === +id)
+}
+export { localStorageCity, numberFormat,Find };

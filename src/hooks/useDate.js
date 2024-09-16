@@ -4,6 +4,7 @@ function useDateFormater(date) {
   const timeAgo = formatDistanceToNow(new Date(date), { addSuffix: true });
   let newTimeAgo = timeAgo.split(" ");
   let value = "";
+  console.log()
   if (newTimeAgo.includes("hours")) {
     value = ` ${newTimeAgo.at(0)}  ساعت پیش در    `;
   } else if (newTimeAgo.includes("hour")) {
@@ -16,6 +17,8 @@ function useDateFormater(date) {
     value = `${newTimeAgo.at(0)} دقیقه پیش در `;
   } else if (newTimeAgo.includes("minutes")) {
     value = `${newTimeAgo.at(0)} دقیقه پیش در `;
+  }else if (newTimeAgo.includes("month")) {
+    value = `${newTimeAgo.at(1)} ماه پیش در `;
   }
   return value;
 }

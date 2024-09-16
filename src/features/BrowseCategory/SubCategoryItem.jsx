@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../ui/Button";
 import { IoMdArrowRoundForward } from "react-icons/io";
-import CategoryIcon from "../../ui/CategoryIcon";
 import CategoryItem from "./CategoryItem";
 
 function SubCategoryItem({ openCategory, onClose }) {

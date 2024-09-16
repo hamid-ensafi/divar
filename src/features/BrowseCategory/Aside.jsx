@@ -3,27 +3,35 @@ import { CategoryData } from "../../data/data";
 import CategoryItem from "./CategoryItem";
 import SubCategoryItem from "./SubCategoryItem";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { Find } from "../../utils/helper";
 
 function Aside() {
   const [searchParams, setSearchParams] = useSearchParams();
   let category = searchParams.get("category");
-
-  const [openCategory, setOpenCategory] = useState(() => {
-    if (category)
-      return CategoryData.slice().find((item) => item.id === +category);
-    else return {};
-  });
-
+  const [openCategory, setOpenCategory] = useState(() =>
+    category ? Find(CategoryData, category) : {},
+  );
   const navigate = useNavigate();
+  useEffect(() => {
+    if (category) {
+      const subCategory = Find(CategoryData, category);
+      setOpenCategory(subCategory);
+    } else {
+      return setOpenCategory({});
+    }
+  }, [category]);
+
 
   function handleClick(id) {
     navigate(`?category=${id}`);
-    let subCategory = CategoryData.slice().find((item) => item.id === id);
+    let subCategory = Find(CategoryData, id);
     setOpenCategory(subCategory);
   }
   function handleClose() {
+    searchParams.delete("category");
+    searchParams.delete("subcategory");
+    setSearchParams(searchParams);
     setOpenCategory({});
-    setSearchParams(searchParams.delete(category));
   }
   return (
     <div className="relative w-1/6">

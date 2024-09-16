@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import CategoryIcon from "../../ui/CategoryIcon";
 
 function CategoryItem({ item, onSelect, selected = false }) {
   const { id, name } = item;
-  const [searchParams,setSearchParams]=useSearchParams()
+  const [serachParams, setSearchParams] = useSearchParams()
   if (selected === true) {
     return (
       <Link
@@ -21,8 +21,11 @@ function CategoryItem({ item, onSelect, selected = false }) {
   }
   if (!name) {
     return (
-      <li className="flex items-center gap-2 py-2 text-sm text-lightGray hover:text-white">
-        <Link  to={`?subcategory=${id}`} >
+      <li onClick={() => {
+        serachParams.set('subcategory',id)
+        setSearchParams(serachParams)
+      }} className="flex items-center gap-2 py-2 text-sm text-lightGray hover:text-white">
+        <Link >
           {item.nameSubCategory}
         </Link>
       </li>
