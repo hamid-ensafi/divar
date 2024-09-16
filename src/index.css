@@ -8,20 +8,17 @@
   src: url("../src/assets/font/IRANSansXFaNum-Medium.ttf") format("opentype");
 }
 @layer base {
-    body {
-      @apply font-iransans;
-      @apply bg-darkGray
-     
-    }
-   
+  body {
+    @apply font-iransans;
+    @apply bg-darkGray;
   }
-  @layer utilities {
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none; 
-        scrollbar-width: none;  
-        
+}
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

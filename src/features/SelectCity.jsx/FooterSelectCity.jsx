@@ -2,8 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
-
-import {saveLocalStorage , cancelSelection , getCitySelect} from "../../slice/citySelectSlice";
+import {
+  saveLocalStorage,
+  cancelSelection,
+  getCitySelect,
+} from "../../slice/citySelectSlice";
 
 import { closePopup } from "../../slice/popupSlice";
 
@@ -11,24 +14,23 @@ import { localStorageCity } from "../../utils/helper";
 
 function FooterSelectCity() {
   const [, setSearchParams] = useSearchParams();
+
   const dispatch = useDispatch();
+
   const { cityItem } = useSelector(getCitySelect);
 
   function handleSave() {
     dispatch(saveLocalStorage());
-
     let cityId = localStorageCity();
-
     setSearchParams(`cities=${cityId}`);
-
     dispatch(closePopup());
   }
 
   function handleCancel() {
     dispatch(cancelSelection());
-
     dispatch(closePopup());
   }
+
   return (
     <footer className="flex h-1/6 items-center justify-between border-t border-gray_200 p-2">
       <button

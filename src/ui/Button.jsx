@@ -6,7 +6,7 @@ function Button({ children, disabled, to, type, onClick, text }) {
   const styles = {
     rowRevers:
       base +
-      " flex flex-row-reverse items-center  transition duration-200 hover:bg-lightBlack rounded-md",
+      " flex flex-row-reverse items-center text-sm transition duration-200 hover:bg-lightBlack rounded-md",
     row: base + " flex  items-center  transition duration-200 hover:bg-lightBlack rounded-md",
     redButton:
       "font-700 bg-Red rounded-md px-2 text-sm text-slate-800 transition duration-200 hover:bg-red-400",

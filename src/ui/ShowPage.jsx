@@ -13,7 +13,7 @@ function ShowPage() {
         <PageContent>
           <div
             onClick={() => dispatch(closePopup())}
-            className="fixed left-0 top-0 z-0 flex h-[100vh] w-full animate-opacityAnime items-center justify-center bg-gray_100"
+            className="fixed left-0 top-0 z-0 flex h-[100vh]  w-full animate-opacityAnime items-center justify-center bg-gray_100"
           >
             {target === "select city" && (
               <SelectCityContent></SelectCityContent>

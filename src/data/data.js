@@ -1,55 +1,83 @@
-
-
 const CategoryData = [
   {
     id: 1,
     name: "املاک",
-    // emojy: 
+    subCategory: [
+      {
+        id: 1,
+        nameSubCategory: "فروش مسکونی ",
+      },
+      {
+        id: 2,
+        nameSubCategory: "اجاره مسکونی",
+      },
+      {
+        id: 3,
+        nameSubCategory: "فروش اداری و تجاری",
+      },
+      {
+        id: 4,
+        nameSubCategory: "اجاره اداری و تجاری",
+      },
+      {
+        id: 5,
+        nameSubCategory: "اجاره کوتاه مدت ",
+      },
+    ],
   },
   {
     id: 2,
     name: "وسایل نقلیه ",
-    // emojy: <FaCarAlt />,
+    subCategory: [
+      {
+        id: 1,
+        nameSubCategory: "خودرو ",
+      },
+      {
+        id: 2,
+        nameSubCategory: " موتور سیکلت",
+      },
+      {
+        id: 3,
+        nameSubCategory: "قطعات  یدکی و لوازم جانبی ",
+      },
+      {
+        id: 4,
+        nameSubCategory: "قایق و سایر وسایل نقلیه ",
+      },
+    ],
   },
   {
     id: 3,
     name: "کالای دیجیتال ",
-    // emojy: <CiMobile2 />,
   },
   {
     id: 4,
     name: "خانه و اشپزخانه ",
-    // emojy: <LuLampFloor />,
   },
   {
     id: 5,
     name: "خدمات",
-    // emojy: <HiHomeModern />,
   },
   {
     id: 6,
     name: "وسایل شخصی",
-    // emojy: <HiHomeModern />,
   },
   {
     id: 7,
     name: "سرگرمی و فراغت",
-    // emojy: <HiHomeModern />,
   },
   {
     id: 8,
     name: "اجتماعی",
-    // emojy: <HiHomeModern />,
   },
   {
     id: 9,
     name: "تجهیزات صنعتی ",
-    // emojy: <HiHomeModern />,
   },
   {
     id: 10,
     name: "استخدام و کاریابی ",
-    // emojy: <HiHomeModern />,
   },
 ];
 export { CategoryData };
